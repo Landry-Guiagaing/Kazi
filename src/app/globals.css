@@ -1,26 +1,39 @@
-@import "tailwindcss";
+@theme {
+  /* Couleurs Kazi */
+  --color-cream: #f8f6f2;
+  --color-beige: #f1ede6;
+  --color-navy: #1c2b3a;
+  --color-champagne: #c5a572;
+  --color-ink: #1a1a1a;
+  --color-muted: #5c5c5c;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Rôles sémantiques */
+  --color-background-primary: var(--color-cream);
+  --color-background-secondary: var(--color-beige);
+  --color-text-primary: var(--color-ink);
+  --color-text-secondary: var(--color-muted);
+  --color-primary: var(--color-navy);
+  --color-accent: var(--color-champagne);
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Typographie */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-playfair), ui-serif, Georgia, serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(28 43 58 / 0.04);
+  --shadow-md: 0 4px 12px -2px rgb(28 43 58 / 0.08);
+  --shadow-lg: 0 12px 32px -8px rgb(28 43 58 / 0.12);
+
+  /* Container */
+  --container-kazi: 1280px;
+
+  /* Motion */
+  --ease-standard: ease-in-out;
 }
