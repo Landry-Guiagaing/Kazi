@@ -6,6 +6,7 @@ import { Menu } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { MobileMenu } from "./MobileMenu";
+import Link from "next/link";
 
 const navItems = [
   { label: "Talents", href: "#talents" },
@@ -22,20 +23,20 @@ export function Header() {
       <header className="sticky top-0 z-40 w-full border-b border-navy/10 bg-cream/95 backdrop-blur-sm">
         <Container>
           <div className="flex h-16 items-center justify-between gap-8">
-            <a
-              href="#"
+            <Link
+              href="/"
               aria-label="Kazi — Accueil"
               className="inline-flex items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
             >
-              <Image
-                src="/public/images/logo/logo-Kazi.png"
-                alt="Kazi"
-                width={120}
-                height={40}
-                priority
-                className="h-9 w-auto"
-              />
-            </a>
+                <Image 
+                  src="/images/logo/logo-Kazi.png"
+                  alt="Kazi"
+                  width={120}
+                  height={40}
+                  priority
+                  className="h-9 w-auto"
+                />
+            </Link>
 
             <nav
               aria-label="Navigation principale"
