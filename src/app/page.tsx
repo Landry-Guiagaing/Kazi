@@ -1,12 +1,13 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { HeroSection } from "@/components/sections/HeroSection";
 
 export default function Home() {
   return (
     <>
       <Header />
       <main>
-        {/* Sections de la landing page Kazi — à implémenter progressivement */}
+        <HeroSection />
       </main>
       <Footer />
     </>
