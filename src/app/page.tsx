@@ -1,3 +1,4 @@
+import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
       <main>
         {/* Sections de la landing page Kazi — à implémenter progressivement */}
       </main>
+      <Footer />
     </>
   );
 }
