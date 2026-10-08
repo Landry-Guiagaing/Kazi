@@ -28,13 +28,13 @@ export function Header() {
               aria-label="Kazi — Accueil"
               className="inline-flex items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
             >
-                <Image 
+                <Image
                   src="/images/logo/logo-Kazi.png"
                   alt="Kazi"
-                  width={120}
-                  height={40}
+                  width={56}
+                  height={56}
                   priority
-                  className="h-9 w-auto"
+                  className="flex w-auto h-16 items-center justify-between gap-8 "
                 />
             </Link>
 
