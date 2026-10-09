@@ -2,6 +2,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Benefits } from "@/components/sections/Benefits";
 import { Categories } from "@/components/sections/Categories";
+import { FAQSection } from "@/components/sections/FAQSection";
 import { FeaturedTalents } from "@/components/sections/FeaturedTalents";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -19,6 +20,7 @@ export default function Home() {
         <HowItWorks />
         <Benefits />
         <Testimonials />
+        <FAQSection />
         <FinalCTA />
       </main>
       <Footer />
