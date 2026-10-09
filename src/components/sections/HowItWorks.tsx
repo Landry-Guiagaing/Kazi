@@ -36,7 +36,7 @@ export function HowItWorks() {
             Comment ça marche
           </h2>
           <p className="mt-4 text-lg text-muted">
-            Trois étapes, du profil à l&apos; opportunité.
+            {"Trois étapes, du profil à l'opportunité."}
           </p>
         </div>
 
@@ -45,7 +45,7 @@ export function HowItWorks() {
             <li key={step.number} className="flex flex-col gap-4">
               <span
                 aria-hidden="true"
-                className="font-heading text-5xl font-semibold text-champagne sm:text-6xl"
+                className="font-heading text-5xl font-semibold text-navy/60 sm:text-6xl"
               >
                 {step.number}
               </span>
