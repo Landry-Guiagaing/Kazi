@@ -27,6 +27,6 @@ export const talents: Talent[] = [
     name: "Tunde Okafor",
     specialty: "Vidéaste",
     description: "Films courts et contenus de marque.",
-    category: "Image",
+    category: "Vidéo",
   },
 ];
