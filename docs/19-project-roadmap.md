@@ -4,28 +4,32 @@
 DONE.
 
 ## Phase 1 — Repository & Setup
-NEXT : GitHub, Next.js, TypeScript, Tailwind, Lucide, Git, README initial, premier commit, lint/build.
+DONE.
 
 ## Phase 2 — Foundations
-Fonts, tokens, globals, layout, container, Button, focus, responsive foundations.
+DONE. (tokens, typographie, layout, Button)
 
 ## Phase 3 — Layout
-Header, MobileMenu, Footer.
+DONE. (Header, MobileMenu, Footer)
 
 ## Phase 4 — Sections
-Hero → Social Proof → Featured Talents → Categories → How It Works → Benefits → Testimonials → FAQ → Final CTA.
+DONE. (Hero, Featured Talents, Categories, How It Works, Benefits, Testimonials, FAQ, Final CTA)
 
-## Phase 5
-Responsive 320 → 1440+ et vrai mobile.
+## Phase 5 — Responsive
+DONE. (320px → 1440+, testé sur vrais téléphones)
 
-## Phase 6
-Lint, typecheck, build, accessibility, links, performance, SEO.
+## Phase 6 — Qualité
+DONE.
+- lint / typecheck / build : OK
+- Audit a11y (axe DevTools) : 0 problème
+- SEO : metadata, Open Graph, sitemap, robots
+- Lighthouse (PageSpeed Insights) : 99 / 100 / 100 / 100
 
-## Phase 7
-Deployment.
+## Phase 7 — Deployment
+DONE. https://kazi-talent.vercel.app
 
-## Phase 8
-V1 release, tag, README, screenshots, demo URL.
+## Phase 8 — V1 release
+EN COURS.
 
-## Phase 9
-Corrections puis V1.1/V2.
+## Phase 9 — Corrections puis V1.1/V2.
+À VENIR.
