@@ -15,7 +15,7 @@ const playfair = Playfair_Display({
   weight: ["500", "600", "700"],
 });
 
-const siteUrl = "https://kazi-talents.vercel.app";
+const siteUrl = "https://kazi-talent.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
