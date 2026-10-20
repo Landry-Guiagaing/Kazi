@@ -71,7 +71,7 @@
     "ctaButton": "Trouver un talent",
     "copyright": "© {year} Kazi. Tous droits réservés."
   },
-    "TalentsPage": {
+  "TalentsPage": {
     "title": "Découvrez les talents",
     "subtitle": "Explorez les profils qui construisent l'avenir en Afrique.",
     "viewProfile": "Voir le profil",
@@ -81,5 +81,24 @@
     "allCategories": "Tous les domaines",
     "noResults": "Aucun talent ne correspond à votre recherche.",
     "clearFilters": "Réinitialiser les filtres"
+  },
+  "RegisterPage": {
+    "title": "Créer un compte",
+    "name": "Nom complet",
+    "email": "Adresse email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "role": "Je suis",
+    "roleTalent": "Un talent",
+    "roleCompany": "Une entreprise",
+    "submit": "Créer mon compte"
+  },
+  "LoginPage": {
+    "title": "Connexion",
+    "email": "Adresse email",
+    "password": "Mot de passe",
+    "submit": "Se connecter",
+    "noAccount": "Pas encore de compte ?",
+    "registerLink": "S'inscrire"
   }
 }
