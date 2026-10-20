@@ -82,6 +82,14 @@
     "noResults": "Aucun talent ne correspond à votre recherche.",
     "clearFilters": "Réinitialiser les filtres"
   },
+  "LoginPage": {
+    "title": "Connexion",
+    "email": "Adresse email",
+    "password": "Mot de passe",
+    "submit": "Se connecter",
+    "noAccount": "Pas encore de compte ?",
+    "registerLink": "S'inscrire"
+  },
   "RegisterPage": {
     "title": "Créer un compte",
     "name": "Nom complet",
@@ -91,14 +99,11 @@
     "role": "Je suis",
     "roleTalent": "Un talent",
     "roleCompany": "Une entreprise",
-    "submit": "Créer mon compte"
+    "submit": "Créer mon compte",
+    "alreadyHaveAccount": "Déjà un compte ?",
+    "loginLink": "Se connecter"
   },
-  "LoginPage": {
-    "title": "Connexion",
-    "email": "Adresse email",
-    "password": "Mot de passe",
-    "submit": "Se connecter",
-    "noAccount": "Pas encore de compte ?",
-    "registerLink": "S'inscrire"
+  "LayoutWrapper": {
+    "backToHome": "Retour à l'accueil"
   }
 }

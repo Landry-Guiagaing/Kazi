@@ -82,6 +82,14 @@
     "noResults": "No talents match your search.",
     "clearFilters": "Clear filters"
   },
+  "LoginPage": {
+    "title": "Login",
+    "email": "Email address",
+    "password": "Password",
+    "submit": "Sign in",
+    "noAccount": "No account yet?",
+    "registerLink": "Sign up"
+  },
   "RegisterPage": {
     "title": "Create an account",
     "name": "Full name",
@@ -91,14 +99,11 @@
     "role": "I am",
     "roleTalent": "A talent",
     "roleCompany": "A company",
-    "submit": "Create my account"
+    "submit": "Create my account",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginLink": "Sign in"
   },
-  "LoginPage": {
-    "title": "Login",
-    "email": "Email address",
-    "password": "Password",
-    "submit": "Sign in",
-    "noAccount": "No account yet?",
-    "registerLink": "Sign up"
+  "LayoutWrapper": {
+    "backToHome": "Back to home"
   }
 }

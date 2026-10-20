@@ -1,12 +1,14 @@
 "use client";
 
 import { usePathname, Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { ArrowLeft } from "lucide-react";
 
 export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const t = useTranslations("LayoutWrapper");
   const isAuthPage = pathname.includes("/login") || pathname.includes("/register");
 
   if (isAuthPage) {
@@ -17,7 +19,7 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
           className="absolute left-6 top-6 inline-flex items-center gap-2 text-sm font-medium text-navy/70 transition-colors hover:text-navy"
         >
           <ArrowLeft size={16} />
-          Retour à l&apos;accueil
+          {t("backToHome")}
         </Link>
         <main className="w-full">{children}</main>
       </div>

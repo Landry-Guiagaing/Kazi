@@ -1,14 +1,17 @@
+import { useTranslations } from "next-intl";
 import { LoginForm } from "@/components/sections/LoginForm";
 import { Link } from "@/i18n/routing";
 
 export default function LoginPage() {
+  const t = useTranslations("LoginPage");
+
   return (
     <div className="flex w-full flex-col items-center px-4">
       <LoginForm />
       <div className="mt-6 text-center text-sm text-muted">
-        Pas encore de compte ?{" "}
+        {t("noAccount")}{" "}
         <Link href="/register" className="font-medium text-navy hover:underline">
-          S&apos;inscrire
+          {t("registerLink")}
         </Link>
       </div>
     </div>
