@@ -1,0 +1,74 @@
+{
+  "talents": {
+    "awa-diallo": {
+      "specialty": "Front-end developer",
+      "description": "Accessible and performant web interfaces."
+    },
+    "kwame-mensah": {
+      "specialty": "Product designer",
+      "description": "Designing simple and human experiences."
+    },
+    "zineb-el-fassi": {
+      "specialty": "Photographer",
+      "description": "Portraits and visual stories for brands and institutions."
+    },
+    "tunde-okafor": {
+      "specialty": "Videographer",
+      "description": "Short films and brand content."
+    }
+  },
+  "categories": {
+    "dev": {
+      "name": "Development",
+      "description": "Websites, applications, and digital tools."
+    },
+    "design": {
+      "name": "Design",
+      "description": "Interfaces, visual identities, and products."
+    },
+    "image": {
+      "name": "Image",
+      "description": "Photography and art direction."
+    },
+    "video": {
+      "name": "Video",
+      "description": "Short films, brand content, and motion."
+    }
+  },
+  "testimonials": {
+    "awa-diallo": {
+      "quote": "Kazi allowed me to present my work clearly. I was contacted by a team whose project truly matched what I do.",
+      "role": "Front-end developer"
+    },
+    "kwame-mensah": {
+      "quote": "As a designer, I have long struggled to showcase my work. On Kazi, my profile speaks for itself.",
+      "role": "Product designer"
+    },
+    "lea-fontaine": {
+      "quote": "We were looking for a very specific profile. On Kazi, we found someone whose work spoke for itself.",
+      "role": "Recruitment manager"
+    }
+  },
+  "faq": {
+    "what-is-kazi": {
+      "question": "What is Kazi?",
+      "answer": "Kazi is a platform that connects African talents with opportunities that match their skills."
+    },
+    "who-is-it-for": {
+      "question": "Who is Kazi for?",
+      "answer": "Kazi is for talents who want to showcase their work, and for companies looking for profiles that match their needs."
+    },
+    "create-profile": {
+      "question": "How do I create my profile?",
+      "answer": "Registration and profile creation will be available in an upcoming version. Kazi is currently in a presentation phase."
+    },
+    "pricing": {
+      "question": "Is Kazi free for talents?",
+      "answer": "Access to Kazi will be free for talents. Details for companies will be announced at launch."
+    },
+    "availability": {
+      "question": "When will the platform be available?",
+      "answer": "Kazi is under construction. A first version will be unveiled soon."
+    }
+  }
+}

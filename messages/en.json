@@ -1,0 +1,74 @@
+{
+  "Header": {
+    "talents": "Talents",
+    "categories": "Categories",
+    "howItWorks": "How it works",
+    "faq": "FAQ",
+    "findTalent": "Find a talent"
+  },
+  "Hero": {
+    "title": "African talents, in the right place.",
+    "subtitle": "Kazi connects talents with opportunities that truly match their skills.",
+    "findTalent": "Find a talent",
+    "createProfile": "I am a talent — Create my profile"
+  },
+  "FeaturedTalents": {
+    "title": "Featured Talents",
+    "subtitle": "A glimpse of the profiles building Kazi."
+  },
+  "Categories": {
+    "title": "Explore by field",
+    "subtitle": "The skills that move projects forward."
+  },
+  "HowItWorks": {
+    "title": "How it works",
+    "subtitle": "Three steps, from profile to opportunity.",
+    "step1Title": "Create your profile",
+    "step1Desc": "Showcase your skills, your work, and what sets you apart.",
+    "step2Title": "Get discovered",
+    "step2Desc": "Companies explore profiles by field and by skill.",
+    "step3Title": "Seize the right opportunities",
+    "step3Desc": "Connect with teams whose needs truly match your profile."
+  },
+  "Benefits": {
+    "title": "What Kazi changes",
+    "subtitle": "A platform designed for both sides.",
+    "talentTitle": "For talents",
+    "talent1Title": "A profile that reflects you",
+    "talent1Desc": "Present your skills and achievements clearly and structured.",
+    "talent2Title": "Gain visibility",
+    "talent2Desc": "Be discovered by companies looking for your field.",
+    "talent3Title": "Relevant opportunities",
+    "talent3Desc": "Connect with teams whose needs truly match your profile.",
+    "companyTitle": "For companies",
+    "company1Title": "Find by skill",
+    "company1Desc": "Explore profiles by field and expertise.",
+    "company2Title": "Save time",
+    "company2Desc": "Access talents that directly match your needs.",
+    "company3Title": "Real matches",
+    "company3Desc": "Identify profiles that concretely meet what you are looking for."
+  },
+  "Testimonials": {
+    "title": "They build Kazi",
+    "subtitle": "Feedback from those using the platform.",
+    "disclaimer": "Demo testimonials. They illustrate the platform and do not represent real people."
+  },
+  "FAQ": {
+    "title": "Frequently asked questions",
+    "subtitle": "Answers to the most common questions."
+  },
+  "FinalCTA": {
+    "title": "Ready to find the right talent?",
+    "subtitle": "Join Kazi and discover profiles that truly match your needs.",
+    "findTalent": "Find a talent",
+    "createProfile": "I am a talent — Create my profile"
+  },
+  "Footer": {
+    "tagline": "Kazi connects African talents with opportunities that match their skills.",
+    "navTitle": "Navigation",
+    "ctaTitle": "Are you hiring?",
+    "ctaSubtitle": "Discover profiles that truly match your needs.",
+    "ctaButton": "Find a talent",
+    "copyright": "© {year} Kazi. All rights reserved."
+  }
+}
