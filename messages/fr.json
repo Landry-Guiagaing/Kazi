@@ -76,6 +76,10 @@
     "subtitle": "Explorez les profils qui construisent l'avenir en Afrique.",
     "viewProfile": "Voir le profil",
     "backToTalents": "Retour à l'annuaire",
-    "category": "Domaine"
+    "category": "Domaine",
+    "searchPlaceholder": "Rechercher un nom ou une compétence...",
+    "allCategories": "Tous les domaines",
+    "noResults": "Aucun talent ne correspond à votre recherche.",
+    "clearFilters": "Réinitialiser les filtres"
   }
 }
