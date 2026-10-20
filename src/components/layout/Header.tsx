@@ -2,40 +2,43 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Menu } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { LocaleSwitcher } from "@/components/ui/LocaleSwitcher";
 import { MobileMenu } from "./MobileMenu";
-import Link from "next/link";
-
-const navItems = [
-  { label: "Talents", href: "#talents" },
-  { label: "Catégories", href: "#categories" },
-  { label: "Comment ça marche", href: "#how-it-works" },
-  { label: "FAQ", href: "#faq" },
-];
 
 export function Header() {
+  const t = useTranslations("Header");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navItems = [
+    { label: t("talents"), href: "#talents" },
+    { label: t("categories"), href: "#categories" },
+    { label: t("howItWorks"), href: "#how-it-works" },
+    { label: t("faq"), href: "#faq" },
+  ];
 
   return (
     <>
       <header className="sticky top-0 z-40 w-full border-b border-navy/10 bg-cream/95 backdrop-blur-sm">
         <Container>
-          <div className="flex h-16 items-center justify-between gap-8">
+          <div className="flex h-16 items-center justify-between gap-8 sm:h-20">
             <Link
               href="/"
               aria-label="Kazi — Accueil"
               className="inline-flex items-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
             >
-                <Image
-                  src="/images/logo/logo-Kazi.png"
-                  alt="Kazi"
-                  width={56}
-                  height={56}
-                  priority
-                  className="flex w-auto h-16 items-center justify-between gap-8 "
-                />
+              <Image
+                src="/images/logo/logo-Kazi.png"
+                alt="Kazi"
+                width={56}
+                height={56}
+                priority
+                className="h-10 w-auto sm:h-14 md:h-16"
+              />
             </Link>
 
             <nav
@@ -56,13 +59,15 @@ export function Header() {
               </ul>
             </nav>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
+              <LocaleSwitcher />
+              
               <Button
                 variant="primary"
                 size="md"
                 className="hidden sm:inline-flex"
               >
-                Trouver un talent
+                {t("findTalent")}
               </Button>
 
               <button
