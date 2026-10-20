@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Select } from "@/components/ui/Select";
 import { Eye, EyeOff } from "lucide-react";
 
+
 export function RegisterForm() {
   const t = useTranslations("RegisterPage");
   const [error, setError] = useState<string | null>(null);
