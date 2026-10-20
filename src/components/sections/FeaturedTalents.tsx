@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import { Container } from "@/components/ui/Container";
 import { TalentCard } from "@/components/ui/TalentCard";
 import { talents } from "@/data/talents";
@@ -17,8 +18,13 @@ export function FeaturedTalents() {
         </div>
         <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {talents.map((talent) => (
-            <li key={talent.id}>
+            <li key={talent.id} className="relative group">
               <TalentCard talent={talent} />
+              <Link
+                href={`/talents/${talent.id}`}
+                className="absolute inset-0 z-10"
+                aria-label={`Voir le profil de ${talent.name}`}
+              />
             </li>
           ))}
         </ul>

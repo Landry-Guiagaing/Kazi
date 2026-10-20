@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { LocaleSwitcher } from "@/components/ui/LocaleSwitcher";
@@ -15,10 +15,10 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: t("talents"), href: "#talents" },
-    { label: t("categories"), href: "#categories" },
-    { label: t("howItWorks"), href: "#how-it-works" },
-    { label: t("faq"), href: "#faq" },
+    { label: t("talents"), href: "/talents" },
+    { label: t("categories"), href: "/#categories" },
+    { label: t("howItWorks"), href: "/#how-it-works" },
+    { label: t("faq"), href: "/#faq" },
   ];
 
   return (
@@ -41,19 +41,16 @@ export function Header() {
               />
             </Link>
 
-            <nav
-              aria-label="Navigation principale"
-              className="hidden lg:block"
-            >
+            <nav aria-label="Navigation principale" className="hidden lg:block">
               <ul className="flex items-center gap-8">
                 {navItems.map((item) => (
                   <li key={item.href}>
-                    <a
+                    <Link
                       href={item.href}
                       className="text-sm font-medium text-navy/80 transition-colors duration-200 hover:text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -62,11 +59,7 @@ export function Header() {
             <div className="flex items-center gap-4">
               <LocaleSwitcher />
               
-              <Button
-                variant="primary"
-                size="md"
-                className="hidden sm:inline-flex"
-              >
+              <Button variant="primary" size="md" className="hidden sm:inline-flex">
                 {t("findTalent")}
               </Button>
 
