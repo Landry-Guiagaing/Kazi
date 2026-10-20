@@ -17,7 +17,7 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
           className="absolute left-6 top-6 inline-flex items-center gap-2 text-sm font-medium text-navy/70 transition-colors hover:text-navy"
         >
           <ArrowLeft size={16} />
-          Retour à laccueil
+          Retour à l&apos;accueil
         </Link>
         <main className="w-full">{children}</main>
       </div>

@@ -1,12 +1,12 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "sqlite"
 }
 
-// Schéma standard pour NextAuth
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -14,7 +14,7 @@ model User {
   emailVerified DateTime?
   image         String?
   password      String?
-  role          String    @default("TALENT") // "TALENT" ou "COMPANY"
+  role          String    @default("TALENT")
   accounts      Account[]
   sessions      Session[]
   createdAt     DateTime  @default(now())
