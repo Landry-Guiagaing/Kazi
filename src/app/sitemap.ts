@@ -5,10 +5,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = "https://kazi-talent.vercel.app";
   const locales = ["fr", "en"];
 
-  // Pages statiques de base
-  const staticPages = [""]; // La racine (accueil)
-  // On pourrait ajouter "/talents" ici, mais on va le générer avec les profils
-
   const routes: MetadataRoute.Sitemap = [];
 
   // 1. Ajouter l'accueil pour chaque langue
