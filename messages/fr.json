@@ -70,5 +70,12 @@
     "ctaSubtitle": "Découvrez des profils qui correspondent réellement à vos besoins.",
     "ctaButton": "Trouver un talent",
     "copyright": "© {year} Kazi. Tous droits réservés."
+  },
+    "TalentsPage": {
+    "title": "Découvrez les talents",
+    "subtitle": "Explorez les profils qui construisent l'avenir en Afrique.",
+    "viewProfile": "Voir le profil",
+    "backToTalents": "Retour à l'annuaire",
+    "category": "Domaine"
   }
 }

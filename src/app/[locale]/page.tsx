@@ -1,29 +1,23 @@
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
-import { Benefits } from "@/components/sections/Benefits";
-import { Categories } from "@/components/sections/Categories";
-import { FAQSection } from "@/components/sections/FAQSection";
-import { FeaturedTalents } from "@/components/sections/FeaturedTalents";
-import { FinalCTA } from "@/components/sections/FinalCTA";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { FeaturedTalents } from "@/components/sections/FeaturedTalents";
+import { Categories } from "@/components/sections/Categories";
 import { HowItWorks } from "@/components/sections/HowItWorks";
+import { Benefits } from "@/components/sections/Benefits";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { FAQSection } from "@/components/sections/FAQSection";
+import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <main>
-        <HeroSection />
-        <FeaturedTalents />
-        <Categories />
-        <HowItWorks />
-        <Benefits />
-        <Testimonials />
-        <FAQSection />
-        <FinalCTA />
-      </main>
-      <Footer />
+      <HeroSection />
+      <FeaturedTalents />
+      <Categories />
+      <HowItWorks />
+      <Benefits />
+      <Testimonials />
+      <FAQSection />
+      <FinalCTA />
     </>
   );
 }
