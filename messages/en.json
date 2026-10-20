@@ -76,6 +76,10 @@
     "subtitle": "Explore the profiles building the future in Africa.",
     "viewProfile": "View profile",
     "backToTalents": "Back to talents",
-    "category": "Field"
+    "category": "Field",
+    "searchPlaceholder": "Search a name or skill...",
+    "allCategories": "All fields",
+    "noResults": "No talents match your search.",
+    "clearFilters": "Clear filters"
   }
 }
