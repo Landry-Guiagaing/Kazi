@@ -113,5 +113,14 @@
     "logout": "Log out",
     "editProfile": "Edit profile",
     "backToDirectory": "Back to directory"
+  },
+  "EditProfile": {
+    "title": "Edit profile",
+    "name": "Full name",
+    "bio": "Biography / Specialty",
+    "image": "Profile picture",
+    "save": "Save",
+    "success": "Profile updated successfully!",
+    "backToDashboard": "Back to dashboard"
   }
 }
