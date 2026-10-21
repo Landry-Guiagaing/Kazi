@@ -74,3 +74,9 @@ export async function loginUser(formData: FormData) {
     throw error;
   }
 }
+
+export async function logoutUser() {
+  "use server";
+  const { signOut } = await import("@/auth");
+  await signOut({ redirectTo: "/" });
+}
