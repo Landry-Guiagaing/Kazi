@@ -2,7 +2,7 @@
 
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
-import { signIn } from "@/auth";
+import { signIn, signOut } from "@/auth";
 import { AuthError } from "next-auth";
 
 export async function registerUser(formData: FormData) {
@@ -38,7 +38,6 @@ export async function registerUser(formData: FormData) {
     },
   });
 
-  // Connexion automatique après inscription
   try {
     await signIn("credentials", {
       email,
@@ -76,7 +75,5 @@ export async function loginUser(formData: FormData) {
 }
 
 export async function logoutUser() {
-  "use server";
-  const { signOut } = await import("@/auth");
-  await signOut({ redirectTo: "/" });
+  await signOut({ redirect: false });
 }

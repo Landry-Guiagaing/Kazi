@@ -6,11 +6,15 @@ import { Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { LocaleSwitcher } from "@/components/ui/LocaleSwitcher";
 import { MobileMenu } from "./MobileMenu";
+import { UserAvatar } from "./UserAvatar";
 
-export function Header() {
+type HeaderProps = {
+  user: { id: string; name: string | null; image: string | null } | null;
+};
+
+export function Header({ user }: HeaderProps) {
   const t = useTranslations("Header");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -58,11 +62,8 @@ export function Header() {
 
             <div className="flex items-center gap-4">
               <LocaleSwitcher />
+              <UserAvatar user={user} />
               
-              <Button variant="primary" size="md" className="hidden sm:inline-flex">
-                {t("findTalent")}
-              </Button>
-
               <button
                 type="button"
                 onClick={() => setIsMenuOpen(true)}
