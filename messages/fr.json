@@ -105,5 +105,13 @@
   },
   "LayoutWrapper": {
     "backToHome": "Retour à l'accueil"
+  },
+  "Dashboard": {
+    "welcome": "Bienvenue",
+    "roleTalent": "Talent",
+    "roleCompany": "Entreprise",
+    "logout": "Se déconnecter",
+    "editProfile": "Modifier mon profil",
+    "backToDirectory": "Retour à l'annuaire"
   }
 }
