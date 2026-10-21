@@ -5,8 +5,16 @@ import { useTranslations } from "next-intl";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { ArrowLeft } from "lucide-react";
+import { SessionProvider } from "next-auth/react";
+import type { Session } from "next-auth";
 
-export function LayoutWrapper({ children }: { children: React.ReactNode }) {
+type LayoutWrapperProps = {
+  children: React.ReactNode;
+  session: Session | null;
+  user: { id: string; name: string | null; image: string | null } | null;
+};
+
+export function LayoutWrapper({ children, session, user }: LayoutWrapperProps) {
   const pathname = usePathname();
   const t = useTranslations("LayoutWrapper");
   const isAuthPage = pathname.includes("/login") || pathname.includes("/register");
@@ -27,10 +35,10 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <>
-      <Header />
+    <SessionProvider session={session}>
+      <Header user={user} />
       <main className="flex-1">{children}</main>
       <Footer />
-    </>
+    </SessionProvider>
   );
 }

@@ -2,10 +2,10 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
-import { logoutUser } from "@/actions/auth";
-import { Button } from "@/components/ui/Button";
 import { prisma } from "@/lib/prisma";
 import Image from "next/image";
+import { LogoutButton } from "@/components/ui/LogoutButton";
+import { Button } from "@/components/ui/Button"; // <-- On ajoute cet import
 
 export default async function DashboardPage() {
   const session = await auth();
@@ -14,7 +14,6 @@ export default async function DashboardPage() {
     redirect("/login");
   }
 
-  // On récupère l'utilisateur complet pour avoir l'image et la bio
   const user = await prisma.user.findUnique({
     where: { id: session.user.id },
   });
@@ -76,11 +75,7 @@ export default async function DashboardPage() {
                 </Button>
               </Link>
             )}
-            <form action={logoutUser}>
-              <Button variant="ghost" size="md">
-                {t("logout")}
-              </Button>
-            </form>
+            <LogoutButton label={t("logout")} />
           </div>
         </div>
       </div>

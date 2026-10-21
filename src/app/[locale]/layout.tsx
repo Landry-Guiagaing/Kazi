@@ -4,6 +4,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import "../globals.css";
 import { LayoutWrapper } from "@/components/layout/LayoutWrapper";
+import { auth } from "@/auth";
+import { prisma } from "@/lib/prisma";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -39,6 +41,16 @@ export default async function RootLayout({
 }) {
   const { locale } = await params;
   const messages = await getMessages();
+  const session = await auth();
+
+  // On récupère les infos complètes de l'utilisateur (avec sa photo)
+  let user = null;
+  if (session?.user?.id) {
+    user = await prisma.user.findUnique({
+      where: { id: session.user.id },
+      select: { id: true, name: true, image: true },
+    });
+  }
 
   return (
     <html
@@ -47,7 +59,9 @@ export default async function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={messages}>
-          <LayoutWrapper>{children}</LayoutWrapper>
+          <LayoutWrapper session={session} user={user}>
+            {children}
+          </LayoutWrapper>
         </NextIntlClientProvider>
       </body>
     </html>
