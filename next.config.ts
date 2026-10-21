@@ -6,6 +6,9 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig: NextConfig = {
   experimental: {
     agentFeedback: true,
+    serverActions: {
+      bodySizeLimit: "5mb", // On augmente la limite à 5 Mo
+    },
   },
 };
 

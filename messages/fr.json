@@ -113,5 +113,14 @@
     "logout": "Se déconnecter",
     "editProfile": "Modifier mon profil",
     "backToDirectory": "Retour à l'annuaire"
+  },
+  "EditProfile": {
+    "title": "Modifier mon profil",
+    "name": "Nom complet",
+    "bio": "Biographie / Spécialité",
+    "image": "Photo de profil",
+    "save": "Enregistrer",
+    "success": "Profil mis à jour avec succès !",
+    "backToDashboard": "Retour au tableau de bord"
   }
 }

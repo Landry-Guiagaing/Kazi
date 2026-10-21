@@ -15,6 +15,7 @@ model User {
   image         String?
   password      String?
   role          String    @default("TALENT")
+  bio           String?
   accounts      Account[]
   sessions      Session[]
   createdAt     DateTime  @default(now())
