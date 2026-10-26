@@ -17,7 +17,10 @@ type LayoutWrapperProps = {
 export function LayoutWrapper({ children, session, user }: LayoutWrapperProps) {
   const pathname = usePathname();
   const t = useTranslations("LayoutWrapper");
+
+  // On vérifie si on est sur une page d'auth ou de dashboard
   const isAuthPage = pathname.includes("/login") || pathname.includes("/register");
+  const isDashboardPage = pathname.includes("/dashboard");
 
   if (isAuthPage) {
     return (
@@ -34,6 +37,16 @@ export function LayoutWrapper({ children, session, user }: LayoutWrapperProps) {
     );
   }
 
+  // Si c'est le dashboard, on n'affiche que le contenu (qui contient déjà sa propre Sidebar)
+  if (isDashboardPage) {
+    return (
+      <SessionProvider session={session}>
+        <main className="w-full">{children}</main>
+      </SessionProvider>
+    );
+  }
+
+  // Sinon, on affiche le site public classique (Header + Footer)
   return (
     <SessionProvider session={session}>
       <Header user={user} />
