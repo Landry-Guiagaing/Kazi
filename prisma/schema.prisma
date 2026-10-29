@@ -14,13 +14,84 @@ model User {
   emailVerified DateTime?
   image         String?
   password      String?
-  role          String    @default("TALENT")
-  bio           String?
+  role          String    @default("TALENT") // "TALENT" ou "COMPANY"
+  
   accounts      Account[]
   sessions      Session[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+
+  talentProfile   TalentProfile?
+  companyProfile  CompanyProfile?
 }
+
+model TalentProfile {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  bio         String?
+  title       String?
+  location    String?
+  website     String?
+  linkedin    String?
+  github      String?
+  
+  skills      Skill[]
+  portfolio   PortfolioItem[]
+  collaborations Collaboration[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Skill {
+  id        String        @id @default(cuid())
+  name      String
+  profileId String
+  profile   TalentProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+}
+
+model PortfolioItem {
+  id        String        @id @default(cuid())
+  title     String
+  url       String?
+  images     String?
+  profileId String
+  profile   TalentProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+}
+
+model CompanyProfile {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  companyName String?
+  description String?
+  website     String?
+  interests   String?  
+  
+  collaborations Collaboration[]
+}
+
+model Collaboration {
+  id          String        @id @default(cuid())
+  talentId    String
+  talent      TalentProfile @relation(fields: [talentId], references: [id], onDelete: Cascade)
+  
+  companyId   String
+  company     CompanyProfile @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  
+  jobTitle    String
+  message     String
+  salary      String?       
+  status      String        @default("PENDING") // PENDING, ACCEPTED, DECLINED, COMPLETED
+  
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+// --- Modèles NextAuth (il faut absolument les garder) ---
 
 model Account {
   id                String  @id @default(cuid())

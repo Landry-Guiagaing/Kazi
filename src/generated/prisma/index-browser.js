@@ -125,7 +125,54 @@ exports.Prisma.UserScalarFieldEnum = {
   image: 'image',
   password: 'password',
   role: 'role',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TalentProfileScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
   bio: 'bio',
+  title: 'title',
+  location: 'location',
+  website: 'website',
+  linkedin: 'linkedin',
+  github: 'github',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SkillScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  profileId: 'profileId'
+};
+
+exports.Prisma.PortfolioItemScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  url: 'url',
+  images: 'images',
+  profileId: 'profileId'
+};
+
+exports.Prisma.CompanyProfileScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  companyName: 'companyName',
+  description: 'description',
+  website: 'website',
+  interests: 'interests'
+};
+
+exports.Prisma.CollaborationScalarFieldEnum = {
+  id: 'id',
+  talentId: 'talentId',
+  companyId: 'companyId',
+  jobTitle: 'jobTitle',
+  message: 'message',
+  salary: 'salary',
+  status: 'status',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -171,6 +218,11 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   User: 'User',
+  TalentProfile: 'TalentProfile',
+  Skill: 'Skill',
+  PortfolioItem: 'PortfolioItem',
+  CompanyProfile: 'CompanyProfile',
+  Collaboration: 'Collaboration',
   Account: 'Account',
   Session: 'Session',
   VerificationToken: 'VerificationToken'

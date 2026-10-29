@@ -2,7 +2,7 @@
 
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
-import { signIn, signOut } from "@/auth";
+import { signIn, signOut } from "@/auth"; // <-- On ajoute signOut ici
 import { AuthError } from "next-auth";
 
 export async function registerUser(formData: FormData) {
@@ -19,10 +19,7 @@ export async function registerUser(formData: FormData) {
     return { error: "Le mot de passe doit faire au moins 6 caractères." };
   }
 
-  const existingUser = await prisma.user.findUnique({
-    where: { email },
-  });
-
+  const existingUser = await prisma.user.findUnique({ where: { email } });
   if (existingUser) {
     return { error: "Cet email est déjà utilisé." };
   }
@@ -35,6 +32,12 @@ export async function registerUser(formData: FormData) {
       email,
       password: hashedPassword,
       role,
+      ...(role === "TALENT" && {
+        talentProfile: { create: {} } 
+      }),
+      ...(role === "COMPANY" && {
+        companyProfile: { create: {} } 
+      }),
     },
   });
 
