@@ -40,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Java / Spring Boot
+kazi-backend/target/
+*.class
+*.jar
+*.war
