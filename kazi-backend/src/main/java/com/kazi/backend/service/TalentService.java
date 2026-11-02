@@ -1,10 +1,12 @@
 package com.kazi.backend.service;
 
+import com.kazi.backend.dto.AddSkillRequest;
 import com.kazi.backend.dto.TalentDetailResponse;
 import com.kazi.backend.dto.TalentSummaryResponse;
 import com.kazi.backend.dto.UpdateTalentProfileRequest;
 import com.kazi.backend.entity.Skill;
 import com.kazi.backend.entity.TalentProfile;
+import com.kazi.backend.repository.SkillRepository;
 import com.kazi.backend.repository.TalentProfileRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
 public class TalentService {
 
     private final TalentProfileRepository talentProfileRepository;
+    private final SkillRepository skillRepository;
 
     public List<TalentSummaryResponse> getAllTalents() {
         return talentProfileRepository.findAll().stream()
@@ -37,18 +40,38 @@ public class TalentService {
         TalentProfile profile = talentProfileRepository.findById(talentId)
                 .orElseThrow(() -> new RuntimeException("Talent non trouvé avec l'id : " + talentId));
 
-        // Vérification de propriété : seul le propriétaire peut modifier
         if (!profile.getUser().getId().equals(userId)) {
             throw new RuntimeException("Vous n'êtes pas autorisé à modifier ce profil.");
         }
 
-        // Mise à jour conditionnelle : on ne modifie que les champs fournis
         if (request.getTitle() != null) profile.setTitle(request.getTitle());
         if (request.getBio() != null) profile.setBio(request.getBio());
         if (request.getLocation() != null) profile.setLocation(request.getLocation());
         if (request.getWebsite() != null) profile.setWebsite(request.getWebsite());
         if (request.getLinkedin() != null) profile.setLinkedin(request.getLinkedin());
         if (request.getGithub() != null) profile.setGithub(request.getGithub());
+
+        TalentProfile updated = talentProfileRepository.save(profile);
+        return mapToDetail(updated);
+    }
+
+    @Transactional
+    public TalentDetailResponse addSkill(UUID talentId, UUID userId, AddSkillRequest request) {
+        TalentProfile profile = talentProfileRepository.findById(talentId)
+                .orElseThrow(() -> new RuntimeException("Talent non trouvé avec l'id : " + talentId));
+
+        if (!profile.getUser().getId().equals(userId)) {
+            throw new RuntimeException("Vous n'êtes pas autorisé à modifier ce profil.");
+        }
+
+        // Chercher la compétence, ou la créer si elle n'existe pas
+        Skill skill = skillRepository.findByName(request.getName())
+                .orElseGet(() -> skillRepository.save(
+                        Skill.builder().name(request.getName()).build()
+                ));
+
+        // Ajouter la compétence au profil (le Set évite les doublons)
+        profile.getSkills().add(skill);
 
         TalentProfile updated = talentProfileRepository.save(profile);
         return mapToDetail(updated);

@@ -1,5 +1,6 @@
 package com.kazi.backend.controller;
 
+import com.kazi.backend.dto.AddSkillRequest;
 import com.kazi.backend.dto.TalentDetailResponse;
 import com.kazi.backend.dto.TalentSummaryResponse;
 import com.kazi.backend.dto.UpdateTalentProfileRequest;
@@ -35,5 +36,13 @@ public class TalentController {
             @RequestHeader("X-User-Id") UUID userId,
             @Valid @RequestBody UpdateTalentProfileRequest request) {
         return ResponseEntity.ok(talentService.updateProfile(id, userId, request));
+    }
+
+    @PostMapping("/{id}/skills")
+    public ResponseEntity<TalentDetailResponse> addSkill(
+            @PathVariable UUID id,
+            @RequestHeader("X-User-Id") UUID userId,
+            @Valid @RequestBody AddSkillRequest request) {
+        return ResponseEntity.ok(talentService.addSkill(id, userId, request));
     }
 }
