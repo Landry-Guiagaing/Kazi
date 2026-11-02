@@ -42,4 +42,13 @@ public class TalentProfile {
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
+
+    @Builder.Default
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "talent_skills",
+        joinColumns = @JoinColumn(name = "talent_profile_id"),
+        inverseJoinColumns = @JoinColumn(name = "skill_id")
+    )
+    private java.util.Set<Skill> skills = new java.util.HashSet<>();
 }
