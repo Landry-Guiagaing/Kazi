@@ -45,4 +45,12 @@ public class TalentController {
             @Valid @RequestBody AddSkillRequest request) {
         return ResponseEntity.ok(talentService.addSkill(id, userId, request));
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<TalentSummaryResponse>> searchTalents(
+            @RequestParam(required = false) String skill,
+            @RequestParam(required = false) String location,
+            @RequestParam(required = false) String title) {
+        return ResponseEntity.ok(talentService.searchTalents(skill, location, title));
+    }
 }

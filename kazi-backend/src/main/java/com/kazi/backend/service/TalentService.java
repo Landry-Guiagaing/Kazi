@@ -104,4 +104,16 @@ public class TalentService {
                 .skills(skillNames)
                 .build();
     }
+
+    public List<TalentSummaryResponse> searchTalents(String skill, String location, String title) {
+        // On normalise les paramètres : si la chaîne est vide, on la passe à null
+        String skillParam = (skill != null && !skill.isBlank()) ? skill : null;
+        String locationParam = (location != null && !location.isBlank()) ? location : null;
+        String titleParam = (title != null && !title.isBlank()) ? title : null;
+
+        return talentProfileRepository.searchTalents(skillParam, locationParam, titleParam)
+                .stream()
+                .map(this::mapToSummary)
+                .collect(Collectors.toList());
+    }
 }
