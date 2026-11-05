@@ -1,54 +1,60 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { Search, X } from "lucide-react";
 import { TalentCard } from "@/components/ui/TalentCard";
 import { Select } from "@/components/ui/Select";
-import { talents } from "@/data/talents";
-import { categories } from "@/data/categories";
 import { Button } from "@/components/ui/Button";
+import { searchTalents, ApiTalent } from "@/lib/api";
 
 export function TalentsDirectory() {
   const t = useTranslations("TalentsPage");
-  const tCategories = useTranslations("categories");
-  const tData = useTranslations("talents");
-
+  
+  const [talents, setTalents] = useState<ApiTalent[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const categoryOptions = [
-    { value: "all", label: t("allCategories") },
-    ...categories.map((cat) => ({
-      value: cat.name,
-      label: tCategories(`${cat.id}.name`),
-    })),
-  ];
+  useEffect(() => {
+    async function loadTalents() {
+      try {
+        const data = await searchTalents();
+        setTalents(data);
+      } catch (error) {
+        console.error("Erreur lors du chargement des talents", error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    loadTalents();
+  }, []);
 
   const filteredTalents = useMemo(() => {
     return talents.filter((talent) => {
-      const name = talent.name.toLowerCase();
-      const specialty = tData(`${talent.id}.specialty`).toLowerCase();
-      const description = tData(`${talent.id}.description`).toLowerCase();
       const query = searchQuery.toLowerCase();
-
-      const matchesSearch =
-        name.includes(query) ||
-        specialty.includes(query) ||
-        description.includes(query);
-
-      const matchesCategory =
-        selectedCategory === "all" || talent.category === selectedCategory;
+      const matchesSearch = 
+        talent.name.toLowerCase().includes(query) ||
+        (talent.title && talent.title.toLowerCase().includes(query)) ||
+        (talent.location && talent.location.toLowerCase().includes(query));
+      
+      // Pour l'instant, le filtre catégorie est désactivé car le backend ne gère pas encore les catégories
+      const matchesCategory = selectedCategory === "all"; 
 
       return matchesSearch && matchesCategory;
     });
-  }, [searchQuery, selectedCategory, tData]);
+  }, [talents, searchQuery, selectedCategory]);
 
-  const clearFilters = () => {
-    setSearchQuery("");
-    setSelectedCategory("all");
-  };
+  const categoryOptions = [
+    { value: "all", label: t("allCategories") },
+    { value: "dev", label: "Développement" },
+    { value: "design", label: "Design" },
+  ];
+
+  if (isLoading) {
+    return <div className="text-center py-20 text-muted">Chargement des talents...</div>;
+  }
 
   return (
     <div className="mx-auto max-w-5xl">
@@ -86,24 +92,36 @@ export function TalentsDirectory() {
 
       {filteredTalents.length > 0 ? (
         <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredTalents.map((talent) => (
-            <li key={talent.id} className="relative group">
-              <TalentCard talent={talent} />
-              <Link
-                href={`/talents/${talent.id}`}
-                className="absolute inset-0 z-10"
-                aria-label={`${t("viewProfile")} ${talent.name}`}
-              />
-            </li>
-          ))}
+          {filteredTalents.map((talent) => {
+            // On adapte les données API au type attendu par TalentCard
+            const cardTalent = {
+              id: talent.id,
+              name: talent.name,
+              specialty: talent.title || "Titre non défini",
+              description: talent.location || "Localisation non renseignée",
+              category: "Talent",
+              image: talent.image || undefined,
+            };
+
+            return (
+              <li key={talent.id} className="relative group">
+                <TalentCard talent={cardTalent} />
+                <Link
+                  href={`/talents/${talent.id}`}
+                  className="absolute inset-0 z-10"
+                  aria-label={`${t("viewProfile")} ${talent.name}`}
+                />
+              </li>
+            );
+          })}
         </ul>
       ) : (
-        <div className="flex flex-col items-center justify-center rounded-xl bg-white py-20 text-center">
+        <div className="flex flex-col items-center justify-center rounded-xl bg-beige py-20 text-center">
           <p className="text-lg text-muted">{t("noResults")}</p>
           <Button
             variant="secondary"
             size="md"
-            onClick={clearFilters}
+            onClick={() => { setSearchQuery(""); setSelectedCategory("all"); }}
             className="mt-6"
           >
             {t("clearFilters")}
